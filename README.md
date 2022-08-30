@@ -1,1 +1,5 @@
 # KailashCoating
+
+## Build checklist
+
+- [ ] test
