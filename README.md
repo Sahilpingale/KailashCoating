@@ -2,4 +2,4 @@
 
 ## Build checklist
 
-- [x] test
+- [] Mondo db atlas setup
