@@ -2,4 +2,4 @@
 
 ## Build checklist
 
-- [ ] test
+- [x] test
