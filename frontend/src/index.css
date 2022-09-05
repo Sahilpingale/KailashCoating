@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 
+@media print {
+  .test {
+    font-size: 12.5rem;
+    color: green;
+    margin-bottom: 100vh;
+  }
+} */

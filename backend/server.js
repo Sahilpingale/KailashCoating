@@ -2,11 +2,15 @@
 import express from 'express'
 import color from 'colors'
 import dotenv from 'dotenv'
+import connectDB from './config/db.js'
 
 // Configure Environment variables
 dotenv.config()
 
 const app = express()
+
+// Connect to mongodb database
+connectDB()
 
 // In order to use 'req.body'
 app.use(express.json())
