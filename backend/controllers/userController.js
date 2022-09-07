@@ -47,7 +47,12 @@ const registerUser = asyncHandler(async (req, res) => {
       password,
     })
     if (user) {
-      res.json({ msg: 'User created' })
+      res.json({
+        _id: user._id,
+        username: user.username,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id),
+      })
     } else {
       res.status(400)
       throw new Error('Invalid user data')

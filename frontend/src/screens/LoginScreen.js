@@ -1,26 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../actions/userActions'
 
 const LoginScreen = () => {
+  const dispatch = useDispatch()
+
+  // --- useState --- //
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  // --- useNavigate --- //
+  const navigate = useNavigate()
+
+  // --- useSelectors --- //
+  // 1. Login
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/jobcardcreation')
+    }
+  }, [userInfo, navigate])
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(login(username, password))
+  }
+
   return (
-    <div class="m-5">
-      <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Email address
+    <div className="m-5">
+      <form onSubmit={submitHandler}>
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
+            Username
           </label>
           <input
-            type="email"
-            class="form-control"
-            aria-describedby="emailHelp"
+            type="text"
+            className="form-control"
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label">
             Password
           </label>
-          <input type="password" class="form-control" />
+          <input
+            type="password"
+            className="form-control"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

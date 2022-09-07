@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const JobcardCreationScreen = () => {
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  // ---- Use Selectors ---- //
+  // 1. User Login
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/login')
+    }
+  }, [userInfo, navigate])
   return (
     <div className="d-flex mt-5 gap-5 m-4">
       {/* Buttons */}
