@@ -20,3 +20,31 @@ code {
     margin-bottom: 100vh;
   }
 } */
+
+/* General Css */
+.flex-gap-1 {
+  gap: 1.2rem;
+}
+.flex-gap-2 {
+  gap: 2.4rem;
+}
+.flex-gap-3 {
+  gap: 3.2rem;
+}
+.flex-gap-4 {
+  gap: 4.4rem;
+}
+.flex-gap-5 {
+  gap: 5.5rem;
+}
+.flex {
+  display: flex;
+}
+.justify-self-end {
+  align-items: flex-end;
+}
+
+.margin {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}

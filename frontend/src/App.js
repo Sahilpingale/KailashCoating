@@ -3,7 +3,9 @@ import './App.css'
 import HeaderNav from './components/HeaderNav'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import JobcardCreationScreen from './screens/JobcardCreationScreen'
-import Jobcardlist from './screens/Jobcardlist'
+import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from './screens/RegisterScreen'
+import JobcardListScreen from './screens/JobcardListScreen'
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
           element={<JobcardCreationScreen />}
           exact
         />
-        <Route path="jobcardlist" element={<Jobcardlist />} />
+        <Route path="/jobcardList" element={<JobcardListScreen />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
       </Routes>
     </Router>
   )
