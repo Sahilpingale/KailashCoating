@@ -31,7 +31,7 @@ const JobcardCreationScreen = () => {
       <div className="flex-fill">
         {/* Table 1*/}
         <div className="table-area flex-fill">
-          <table class="table table-bordered">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">Customer Name</th>
@@ -59,7 +59,7 @@ const JobcardCreationScreen = () => {
 
         {/* Table 2 */}
         <div className="table-area flex-fill">
-          <table class="table table-bordered">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">Item Name</th>

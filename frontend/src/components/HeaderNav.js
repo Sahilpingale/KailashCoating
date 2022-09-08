@@ -69,7 +69,7 @@ const HeaderNav = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/editprofile">
                       Edit profile
                     </Link>
                   </li>

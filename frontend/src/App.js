@@ -6,6 +6,7 @@ import JobcardCreationScreen from './screens/JobcardCreationScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import JobcardListScreen from './screens/JobcardListScreen'
+import EditProfileScreen from './screens/EditProfileScreen'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/jobcardList" element={<JobcardListScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/editprofile" element={<EditProfileScreen />} />
       </Routes>
     </Router>
   )

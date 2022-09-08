@@ -7,6 +7,10 @@ import {
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_RESET,
+  USER_UPDATE_REQUEST,
+  USER_UPDATE_SUCCESS,
+  USER_UPDATE_FAIL,
+  USER_UPDATE_RESET,
 } from '../constants/userConstants'
 import axios from 'axios'
 
@@ -88,5 +92,42 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: USER_REGISTER_RESET })
   } catch (error) {
     console.log(error)
+  }
+}
+
+// 4. Update
+export const update = (details) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_UPDATE_REQUEST })
+    const {
+      userLogin: { userInfo },
+    } = getState()
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+        'Content-Type': 'application/json',
+      },
+    }
+    const res = await axios.put('/api/users/profile', details, config)
+    dispatch({ type: USER_UPDATE_SUCCESS, payload: res.data })
+    dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data })
+    localStorage.setItem('userInfo', JSON.stringify(res.data))
+  } catch (error) {
+    dispatch({
+      type: USER_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+// 5. Update Reset
+export const updateReset = () => (dispatch) => {
+  try {
+    dispatch({ type: USER_UPDATE_RESET })
+  } catch (error) {
+    console.log('Update reset error')
   }
 }
